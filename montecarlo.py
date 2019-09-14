@@ -118,7 +118,6 @@ def showMontePi(numDarts):
 
     return approxPi
 
-
 def main():
     """
     () -> None
