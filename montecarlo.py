@@ -1,23 +1,48 @@
 """
-Show Monte Pi
+Monte Carlo Algorithm
 Author: Kiana Hosaka
 Credits: Based on code on p.78 Miller and Ranum text.
 Description: Approximate pi using Monte Carlo algorithm that will display
-the simulation. Compare the result of this algorith to the Python math.pi result.
+the simulation. Compare the result of this algorithm with the Python math.pi result.
 """
 
 from turtle import *
 import math
 import random
 
+def drawBoard():
+    """
+    () -> None
+    Draws the dartboard.
+    >>> drawBoard():
+    *displays blank screen*
+    """
+    wn = Screen()
+    wn.setworldcoordinates(-2, -2, 2, 2)
+
+    speed(0); hideturtle()
+    penup()
+
+    goto(-1, 0)
+    pendown()
+    goto(1, 0)
+    penup()
+    goto(0, 1)
+    pendown()
+    goto(0, -1)
+    penup()
+    goto(0, -1)
+
+    return None
+
 def showMontePi(numDarts):
     '''
     (int) -> float
-    Draws the graphics animation of the algorithm, calculates approximate pi,
-    and prints a report. Returns the approximation of pi. Because we are
+    Draws graphic animation of algorithm, calculates approximate pi,
+    and prints report. Returns approximation of pi. Because we are
     returning approxPi, approxPi will again be printed after the report because
     we printed in main.
-    Because we are implimenting the random element, the examples of functions
+    Because we are implementing the random element, the examples of functions
     may not be replicable.
     >>> showMontePi(10):
     *graphics*
@@ -27,9 +52,7 @@ def showMontePi(numDarts):
     This is a 1.86 percent error
     3.2
     '''
-
     drawBoard()
-
     inCircleCt = 0
 
     for i in range(numDarts):
@@ -79,30 +102,6 @@ def isInCircle(x, y , r):
         return False
 
 
-def drawBoard():
-    """
-    () -> None
-    Draws the "dartboard".
-    >>> drawBoard():
-    *displays blank screen*
-    """
-    wn = Screen()
-    wn.setworldcoordinates(-2, -2, 2, 2)
-
-    speed(0); hideturtle()
-    penup()
-
-    goto(-1, 0)
-    pendown()
-    goto(1, 0)
-    penup()
-    goto(0, 1)
-    pendown()
-    goto(0, -1)
-    penup()
-    goto(0, -1)
-
-    return None
 
 def reportPi(numDarts, approxPi):
     """
